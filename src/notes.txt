@@ -1,0 +1,16 @@
+Model of bomb:
+
+     E----F
+     |    |
+     |leds|
+E----A----B----F
+|    |    |    |
+|serv|time|pote|
+G----C----D----H
+     |    |
+     |ring|
+     G----H
+     |    |
+     |butt|
+     E----F
+
