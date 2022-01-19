@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include "global.h"
 
 // Change to the next colour every tick
 

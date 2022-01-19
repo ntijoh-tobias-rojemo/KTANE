@@ -1,3 +1,3 @@
-#include <Arduino.h>
+#include "global.h"
 
 // 128x64 pixels

@@ -1,7 +1,4 @@
-#include <Arduino.h>
-
-// Declare integers
-static int currentMazePosition[2];
+#include "global.h"
 
 #define f false
 #define t true

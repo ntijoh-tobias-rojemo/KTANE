@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include "global.h"
 
 // 128x64 pixels
 
@@ -31,7 +31,7 @@ bool diagonalLines(int x, int y) {
 bool concentricCircles(int x, int y) {
   const double xpart = 64-x; 
   const double ypart = 32-y;
-  const int dist = sqrt(pow(xpart, 2)+pow(ypart, 2));
+  const int dist = sqrt(pow(xpart, 2) + pow(ypart, 2));
   if ((dist/4)%2 == 0) {
     return true;
   }

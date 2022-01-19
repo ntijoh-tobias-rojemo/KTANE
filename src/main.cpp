@@ -1,44 +1,4 @@
-#include <Arduino.h>
-
-srand(32497746);
-
-// Declare integers
-static int tick = 0;
-static bool hasWon = false;
-
-// Array of colours used
-static const int colours[7][3] = {
-  {255, 0, 0},     // Red
-  {0, 255, 0},     // Green
-  {0, 0, 255},     // Blue
-  {100, 0, 255},   // Purple
-  {255, 0, 225},   // Pink
-  {255, 166, 0},   // Orange
-  {0, 0, 0}        // Off
-};
-
-// Define locations of in/out pins
-#define NeoPixelPin 1
-#define OLEDClockPin 2
-#define OLEDDataPin 3
-#define ServoPin 4
-#define LeftRGBLEDRedPin 5
-#define LeftRGBLEDGreenPin 6
-#define LeftRGBLEDBluePin 7
-#define RightRGBLEDRedPin 8
-#define RightRGBLEDGreenPin 9
-#define RightRGBLEDBluePin 10
-#define Button1Pin 11
-#define Button2Pin 12
-#define Button3Pin 13
-#define TiltSwitchAHPin 14
-#define TiltSwitchBGPin 15
-#define TiltSwitchCFPin 16
-#define TiltSwitchDEPin 17
-#define Timer1Pin 18
-#define Timer2Pin 19
-#define Timer3Pin 20
-#define PotentiometerPin 21
+#include "global.h"
 
 #include "misc.cpp"
 #include "./setup.cpp"
@@ -75,7 +35,7 @@ void setup() {
 }
 
 void loop() {
-  if (hasWon) {
+  if (KTANE::hasWon) {
   }
   else {
     /* Update tick-based modules */
@@ -85,6 +45,6 @@ void loop() {
     /* while (millis() % 1000 - 10 < 20) {
 
     } */
-    tick++;  // Advance internal clock, 1 tick = 1 second
+    KTANE::tick++;  // Advance internal clock, 1 tick = 1 second
   }
 }

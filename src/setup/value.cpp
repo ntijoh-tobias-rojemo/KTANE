@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include "global.h"
 
 int determineInitialValue() {
   static int initialValue = 0;
@@ -9,16 +9,16 @@ int determineInitialValue() {
   static int numberOfPrimes = 0;
   static bool noneBelow5 = true;
   for (int i = 0; i < servoLoopLength; i++) {
-    if (servoLoop[i]%2 == 0) {
+    if (KTANE::servoLoop[i]%2 == 0) {
       numberOfEven++;
     }
     else {
       numberOfOdd++;
     }
-    if (servoLoop[i] == 2 || servoLoop[i] == 3 || servoLoop[i] == 5 || servoLoop[i] == 7) {
+    if (KTANE::servoLoop[i] == 2 || KTANE::servoLoop[i] == 3 || KTANE::servoLoop[i] == 5 || KTANE::servoLoop[i] == 7) {
       numberOfPrimes++;
     }
-    if (servoLoop[i] < 5) {
+    if (KTANE::servoLoop[i] < 5) {
       noneBelow5 = false;
     }
   }
@@ -37,7 +37,7 @@ int determineInitialValue() {
     initialValue += 100;
   }
   // The last number in the servo sequence is either a 4, 6, or 9
-  else if (servoLoop[servoLoopLength] == 4 || servoLoop[servoLoopLength] == 6 || servoLoop[servoLoopLength] == 9) {
+  else if (KTANE::servoLoop[KTANE::servoLoopLength-1] == 4 || KTANE::servoLoop[KTANE::servoLoopLength-1] == 6 || KTANE::servoLoop[KTANE::servoLoopLength-1] == 9) {
     initialValue += 200;
   }
   // Both orange and pink are present in the same RGB sequence
@@ -57,7 +57,7 @@ int determineInitialValue() {
     initialValue += 600;
   }
   // The second number in the servo sequence is either a 1 or a 6
-  else if (servoLoop[1] == 1 || servoLoop[1] == 6) {
+  else if (KTANE::servoLoop[1] == 1 || KTANE::servoLoop[1] == 6) {
     initialValue += 700;
   }
   // The length of the servo sequence is an odd number

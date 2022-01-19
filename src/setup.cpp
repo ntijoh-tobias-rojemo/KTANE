@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include "global.h"
 
 #include "./setup/maze.cpp"
 #include "./setup/oled.cpp"

@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include "global.h"
 
 #include "./tick/maze.cpp"
 #include "./tick/oled.cpp"

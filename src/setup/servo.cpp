@@ -1,13 +1,4 @@
-#include <Arduino.h>
-
-/*Randomize configuration*/
-static const int servoLoopLength = rand()%7+3;
-
-/*Declare empty arrays*/
-static int servoLoop[9] = {-1};
-
-// Declare integers
-static int servoLoopStart;
+#include "global.h"
 
 // Array of servo starts
 static const int servoStarts[4][4] = {
@@ -19,17 +10,17 @@ static const int servoStarts[4][4] = {
 
 // Returns the first value in the servo sequence
 void calcServoLoopStart() {
-  if (leftRGBLoopLength < rightRGBLoopLength) {
-    servoLoopStart = servoStarts[leftRGBLoopLength][rightRGBLoopLength];
+  if (KTANE::leftRGBLoopLength < KTANE::rightRGBLoopLength) {
+    KTANE::servoLoopStart = servoStarts[KTANE::leftRGBLoopLength][KTANE::rightRGBLoopLength];
   }
   else {
-    servoLoopStart = servoStarts[rightRGBLoopLength][leftRGBLoopLength];
+    KTANE::servoLoopStart = servoStarts[KTANE::rightRGBLoopLength][KTANE::leftRGBLoopLength];
   }
 }
 
 // Returns an array of unique integers, starting with servoLoopStart
 void fillServoLoop() {
-  servoLoop[0] = servoLoopStart;
+  KTANE::servoLoop[0] = KTANE::servoLoopStart;
   int output[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
   random_shuffle(&output[0], &output[10]);
 }
