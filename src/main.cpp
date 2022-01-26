@@ -1,15 +1,14 @@
 #include "global.h"
+#include "setup.h"
+#include "tick.h"
 
-#include "misc.cpp"
-#include "./setup.cpp"
-#include "./tick.cpp"
+static int value;
 
 void setup() {
-  fillRGBLoops();
-  calcServoLoopStart();
-  fillServoLoop();
-  // determineInitialValue();
-      /*
+  KTANE::fillRGBLoops();
+  KTANE::calcServoLoopStart();
+  KTANE::fillServoLoop();
+  value = KTANE::determineInitialValue();
   pinMode(NeoPixelPin, OUTPUT);
   pinMode(OLEDClockPin, OUTPUT);
   pinMode(OLEDDataPin, OUTPUT);
@@ -20,18 +19,14 @@ void setup() {
   pinMode(RightRGBLEDRedPin, OUTPUT);
   pinMode(RightRGBLEDGreenPin, OUTPUT);
   pinMode(RightRGBLEDBluePin, OUTPUT);
-  pinMode(Button1Pin, INPUT);
-  pinMode(Button2Pin, INPUT);
-  pinMode(Button3Pin, INPUT);
-  pinMode(TiltSwitchAHPin, INPUT);
-  pinMode(TiltSwitchBGPin, INPUT);
-  pinMode(TiltSwitchCFPin, INPUT);
-  pinMode(TiltSwitchDEPin, INPUT);
+  pinMode(ButtonUpPin, INPUT);
+  pinMode(ButtonDownPin, INPUT);
+  pinMode(ButtonLeftPin, INPUT);
+  pinMode(ButtonRightPin, INPUT);
   pinMode(Timer1Pin, OUTPUT);
   pinMode(Timer2Pin, OUTPUT);
   pinMode(Timer3Pin, OUTPUT);
   pinMode(PotentiometerPin, INPUT);
-      */
 }
 
 void loop() {
@@ -39,7 +34,7 @@ void loop() {
   }
   else {
     /* Update tick-based modules */
-    updateRGBLEDs();
+    KTANE::updateRGBLEDs();
 
     /* Update react-based modules until a second has passed */
     /* while (millis() % 1000 - 10 < 20) {

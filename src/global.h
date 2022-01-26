@@ -1,11 +1,11 @@
 #ifndef KTANE_GLOBAL_H
 #define KTANE_GLOBAL_H
 
+static const int Seed = 3247;
+
 #include <Arduino.h>
 
 namespace KTANE {
-  static const int Seed = 3287653;
-
   // The current cycle
   static int tick = 0;
 
@@ -50,6 +50,9 @@ namespace KTANE {
   // The current position of the player in the maze (x, y)
   static int currentMazePosition[2];
 
+  // The final value
+  static int finalModifiedValue;
+
   // Array of colours used
   static const int colours[7][3] = {
     {255, 0, 0},     // Red
@@ -61,6 +64,22 @@ namespace KTANE {
     {0, 0, 0}        // Off
   };
 
+  // Declare functions
+  void fillRGBLoops();
+  void fillRingRGB();
+  void calcServoLoopStart();
+  void fillServoLoop();
+  int determineInitialValue();
+  bool horizontalLines(int, int);
+  bool verticalLines(int, int);
+  bool squareGrid(int, int);
+  bool diagonalLines(int, int);
+  bool concentricCircles(int, int);
+  bool squareWaves(int, int);
+  bool concentricSquares(int, int);
+  bool checkerboard(int, int);
+  void updateRGBLEDs();
+
   // Define locations of in/out pins
   #define NeoPixelPin 1
   #define OLEDClockPin 2
@@ -71,18 +90,15 @@ namespace KTANE {
   #define LeftRGBLEDBluePin 7
   #define RightRGBLEDRedPin 8
   #define RightRGBLEDGreenPin 9
-  #define RightRGBLEDBluePin 0
-  #define Button1Pin 1
-  #define Button2Pin 2
-  #define Button3Pin 3
-  #define TiltSwitchAHPin 4
-  #define TiltSwitchBGPin 5
-  #define TiltSwitchCFPin 6
-  #define TiltSwitchDEPin 7
-  #define Timer1Pin 8
-  #define Timer2Pin 9
-  #define Timer3Pin 0
-  #define PotentiometerPin 1
+  #define RightRGBLEDBluePin 10
+  #define ButtonUpPin 11
+  #define ButtonDownPin 12
+  #define ButtonLeftPin 13
+  #define ButtonRightPin 14
+  #define Timer1Pin 15
+  #define Timer2Pin 16
+  #define Timer3Pin 17
+  #define PotentiometerPin 18
 }
 
 #endif

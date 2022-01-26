@@ -1,6 +1,9 @@
+#ifndef KTANE_VALUE_SETUP
+#define KTANE_VALUE_SETUP
+
 #include "global.h"
 
-int determineInitialValue() {
+int KTANE::determineInitialValue() {
   static int initialValue = 0;
 
   /* Servo sequence */
@@ -8,7 +11,7 @@ int determineInitialValue() {
   static int numberOfOdd = 0;
   static int numberOfPrimes = 0;
   static bool noneBelow5 = true;
-  for (int i = 0; i < servoLoopLength; i++) {
+  for (int i = 0; i < KTANE::servoLoopLength; i++) {
     if (KTANE::servoLoop[i]%2 == 0) {
       numberOfEven++;
     }
@@ -78,7 +81,7 @@ int determineInitialValue() {
     initialValue += 10;
   }
   // The servo sequence contains no numbers smaller than 5
-  else if (false) {
+  else if (noneBelow5) {
     initialValue += 20;
   }
   // The servo sequence is the same length as either of the RGB sequences
@@ -152,3 +155,5 @@ int determineInitialValue() {
   }
   return initialValue;
 }
+
+#endif

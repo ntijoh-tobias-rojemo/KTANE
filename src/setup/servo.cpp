@@ -1,3 +1,6 @@
+#ifndef KTANE_SERVO_SETUP
+#define KTANE_SERVO_SETUP
+
 #include "global.h"
 
 // Array of servo starts
@@ -9,7 +12,7 @@ static const int servoStarts[4][4] = {
 };
 
 // Returns the first value in the servo sequence
-void calcServoLoopStart() {
+void KTANE::calcServoLoopStart() {
   if (KTANE::leftRGBLoopLength < KTANE::rightRGBLoopLength) {
     KTANE::servoLoopStart = servoStarts[KTANE::leftRGBLoopLength][KTANE::rightRGBLoopLength];
   }
@@ -19,8 +22,15 @@ void calcServoLoopStart() {
 }
 
 // Returns an array of unique integers, starting with servoLoopStart
-void fillServoLoop() {
+void KTANE::fillServoLoop() {
   KTANE::servoLoop[0] = KTANE::servoLoopStart;
   int output[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-  random_shuffle(&output[0], &output[10]);
+  for (int i = 0; i < 10; i++) {
+    const int switchIndex = rand()%10;
+    const int temp = output[i];
+    output[i] = output[switchIndex];
+    output[switchIndex] = temp;
+  }
 }
+
+#endif

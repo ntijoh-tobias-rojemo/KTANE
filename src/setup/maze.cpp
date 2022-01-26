@@ -1,3 +1,6 @@
+#ifndef KTANE_MAZE_SETUP
+#define KTANE_MAZE_SETUP
+
 #include "global.h"
 
 #define f false
@@ -15,3 +18,5 @@ static const bool mazeMap[10][10][4] = {
   {{t,f,f,t},{f,f,t,t},{t,t,t,f},{f,t,f,t},{t,f,t,f},{f,t,f,t},{t,t,t,t},{t,f,t,f},{t,f,f,t},{t,f,t,f}},
   {{f,f,t,t},{f,t,t,t},{t,f,t,t},{t,f,t,f},{f,t,f,t},{t,f,t,f},{t,t,f,t},{f,f,t,t},{f,f,t,t},{f,f,t,t}}
 };
+
+#endif
