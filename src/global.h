@@ -1,11 +1,12 @@
 #ifndef KTANE_GLOBAL_H
 #define KTANE_GLOBAL_H
 
-static const int Seed = 3247;
-
 #include <Arduino.h>
 
+static const int Seed = 3247;
+
 namespace KTANE {
+  
   // The current cycle
   static int tick = 0;
 
